@@ -1,0 +1,45 @@
+- var user = { name: "hans", gender:"male" }
+doctype html
+html(ng-app="app")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        //meta(name='description', content='A front-end template that helps you build fast, modern mobile web apps.')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+
+
+        link(rel='icon', sizes='192x192', href='images/touch/chrome-touch-icon-192x192.png')
+
+        block title
+            title Codeneric
+
+        // define as early as possible to avoid flicker on slow connection
+        style.
+            [ng-cloak], .ng-cloak {
+                display: none !important;
+            }
+
+        // build:css styles/style.min.css
+        link(href="bower_components/normalize.css/normalize.css" rel="stylesheet")
+        link(href="styles/style.css" rel="stylesheet")
+        // endbuild
+
+        //script(src="bower_components/webcomponentsjs/webcomponentsjs.js")
+
+
+
+
+
+    body(ng-cloak="")
+        block body
+
+
+
+
+        // build:js scripts/concat.min.js
+        block footerScripts
+        // endbuild
+        script.
+            angular.module('app').constant('const__me', !{JSON.stringify(user)})

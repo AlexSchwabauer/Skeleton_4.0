@@ -1,0 +1,14 @@
+extend _layout
+
+block title
+   title Codeneric Home
+
+block footerScripts
+   script(src="bower_components/angular/angular.js")
+   script(src="scripts/app.js")
+
+block body
+   header(role="main")
+      div(ng-controller="ctrl")
+         h1  Nutte, {{ 4*8*98 }}
+
