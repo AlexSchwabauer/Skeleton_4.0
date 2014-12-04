@@ -1,0 +1,19 @@
+link(rel='import', href='../bower_components/polymer/polymer.html')
+
+polymer-element(name='site-navigation')
+   template
+      link(rel="stylesheet" href="nav.css")
+      .Nav__wrap#wrap.shrunken
+
+         nav.Nav
+            a(href="./#").Nav__link Our Work
+            a(href="#").Nav__link Our Work
+            a(href="#").Nav__link Our Work
+            a(href="#").Nav__link Our Work
+
+         paper-icon-button(icon="{{ navIcon }}" on-tap="{{ toggleNav }}")
+
+
+   script(src="nav.js")
+
+

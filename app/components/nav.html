@@ -1,0 +1,12 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<polymer-element name="site-navigation">
+  <template>
+    <link rel="stylesheet" href="nav.css"/>
+    <div id="wrap" class="Nav__wrap shrunken">
+      <nav class="Nav"><a href="./#" class="Nav__link">Our Work</a><a href="#" class="Nav__link">Our Work</a><a href="#" class="Nav__link">Our Work</a><a href="#" class="Nav__link">Our Work</a></nav>
+      <paper-icon-button icon="{{ navIcon }}" on-tap="{{ toggleNav }}"></paper-icon-button>
+    </div>
+  </template>
+  <script src="nav.js"></script>
+</polymer-element>

@@ -1,0 +1,57 @@
+ @import "../styles/import"
+
+$color-accent = #b22222;
+
+
+paper-icon-button
+	color $color-accent
+
+	.Nav__wrap:not(.shrunken) &
+		color white
+
+.Nav
+	display: flex
+	flex-direction column
+	flex-wrap wrap
+	justify-content space-between
+
+	position: absolute
+
+	padding-top: 6vh
+
+	will-change: transform
+	transition transform ease .2s
+
+	background-color: $color-accent
+	responsive-color()
+	.Nav__wrap.shrunken &
+		transform: translateX(-100%)
+
+
+	.Nav__link
+		padding: 1.5em 1em
+		box-sizing border-box
+		flex-grow 1
+		//text-align: center
+
+
+
+	+above(2)
+		flex-direction row
+		transition: none
+		padding-top: 0
+		&,.Nav__wrap.shrunken &
+			position: relative
+			transform: translateX(0)
+
+		.Nav__mobile-toggle
+			display: none
+		.Nav__link
+			//padding: 1em 4em w
+			background-color: tomato
+			width: auto
+
+
+
+
+
