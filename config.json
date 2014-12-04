@@ -1,10 +1,11 @@
 {
   "development": {
     "static_dir": "/app/",
-    "host": "localhost",
+    "host": "http://localhost",
     "port": 3000
   },
   "production": {
-    "static_dir": "/dist/"
+    "static_dir": "/dist/",
+    "port": 3000
   }
 }

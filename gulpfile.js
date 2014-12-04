@@ -35,20 +35,11 @@ gulp.task('images', function () {
         .pipe($.size({title: 'images after'}));
 });
 
-//gulp.task('copy', function () {
-//    return gulp.src([
-//        'app/*',
-//       // '!app/bower_components',
-//        '!app/*.html'
-//    ])
-//        .pipe(gulp.dest(deploymentDir))
-//        .pipe($.size({title: 'copy'}));
-//
-//})
-
 gulp.task('deploy', function (cb) {
     $.runSequence('clean',['usemin', 'images'], 'serve:dist', cb )
 })
+
+
 
 gulp.task('serve', function () {
     browserSync({
@@ -57,8 +48,10 @@ gulp.task('serve', function () {
         // Note: this uses an unsigned certificate which on first access
         //       will present a certificate warning in the browser.
         // https: true,
-        server: ['.tmp', config.static_dir]
-
+        server: ['.tmp', 'app/'],
+        scriptPath: function(path) {
+            return 'scripts' + path;
+        }
         //proxy: config.host + ':' + config.port
     });
 
@@ -67,22 +60,54 @@ gulp.task('serve', function () {
     gulp.watch(['app/scripts/**/*.js'], reload);
 })
 
-gulp.task('express', function () {
-    $.express.run({
-        file:'server.js',
-        //env : 'production'
-    });
+//gulp.task('express', function () {
+//    $.express.run({
+//        file:'server.js',
+//        //env : 'production'
+//    });
+//    console.log(config.host + ':' + config.port);
+//    browserSync.init(null, {
+//        //notify: false,
+//        // Run as an https by uncommenting 'https: true'
+//        // Note: this uses an unsigned certificate which on first access
+//        //       will present a certificate warning in the browser.
+//        // https: true,
+//        proxy: config.host + ':' + config.port
+//    });
+//    gulp.watch(['app/views/**/*.jade'], reload);
+//    gulp.watch(['app/styles/**/*.css'], reload);
+//    gulp.watch(['app/scripts/**/*.js'], reload);
+//
+//    //gulp.watch(['./server.js'], ['express'])
+//})
 
-    //gulp.watch(['./server.js'], ['express'])
-})
 
-gulp.task('serve:dist', function () {
-    return browserSync({
-        notify: false,
-        // Run as an https by uncommenting 'https: true'
-        // Note: this uses an unsigned certificate which on first access
-        //       will present a certificate warning in the browser.
-        // https: true,
-        server: ['dist']
+gulp.task('nodemon', function (cb) {
+    var called = false;
+    return $.nodemon({script: 'server.js'}).on('start', function () {
+        if (!called) {
+            called = true;
+            cb();
+        }
     });
-})
+});
+
+gulp.task('browser-sync', function() {
+     browserSync({
+        proxy: 'http://localhost:3000',// config.host + ":" + config.port,
+        //scriptPath: function (path) {
+        //    return "localhost:3002" + path;
+        //}
+         files: ["server.js","routes.js","app/views/**/*.jade", "app/styles/**/*.css", "app/scripts/**/*.js"]
+    });
+});
+gulp.task('watch',function() {
+    //gulp.watch(['app/views/**/*.jade'], reload);
+    //gulp.watch(['app/styles/**/*.css'], reload);
+    //gulp.watch(['app/scripts/**/*.js'], reload);
+});
+
+gulp.task('default', function () {
+    $.runSequence('nodemon', 'browser-sync', 'watch');
+
+});

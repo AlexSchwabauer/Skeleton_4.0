@@ -24,7 +24,8 @@
     "gulp-cache": "^0.2.4",
     "gulp-imagemin": "^2.0.0",
     "gulp-run-sequence": "^0.3.2",
-    "gulp-express": "^0.1.1"
+    "gulp-express": "^0.1.1",
+    "gulp-nodemon": "^1.0.4"
   },
   "dependencies": {
     "express": "^4.10.4",

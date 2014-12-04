@@ -9,5 +9,8 @@ block footerScripts
 
 block body
    header(role="main")
-
+      - if(user)
+         h1 Hi, #{user.name}!
+      - else
+         h1 Hello, stranger
 
