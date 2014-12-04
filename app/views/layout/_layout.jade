@@ -1,4 +1,3 @@
-- var user = { name: "hans", gender:"male" }
 doctype html
 html(ng-app="app")
     head
@@ -28,11 +27,7 @@ html(ng-app="app")
 
         //script(src="bower_components/webcomponentsjs/webcomponentsjs.js")
 
-
-
-
-
-    body(ng-cloak="")
+    body
         block body
 
 
@@ -41,5 +36,3 @@ html(ng-app="app")
         // build:js scripts/concat.min.js
         block footerScripts
         // endbuild
-        script.
-            angular.module('app').constant('const__me', !{JSON.stringify(user)})

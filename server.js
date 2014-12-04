@@ -1,14 +1,22 @@
 /// <reference path='typings/express/express.d.ts' />
-
-var express = require('express');
-var app = express();
-
 var config = require('./config.json')[process.env.NODE_ENV || 'development'];
 
-app.use('/', express.static(__dirname + config.static_dir + 'index.html'));
+var express = require('express');
+var route = require('./routes');
 
-app.get('/', function (req, res) {
-    res.send(process.env.NODE_ENV);
+var app = express();
+
+//app.use(app.router);
+app.use(express.static(__dirname + config.static_dir));
+
+app.set('views', __dirname + config.static_dir + "/views");
+app.set('view engine', 'jade');
+
+app.get('/', route.index);
+app.get('/dashboard', function (req, res) {
+    res.render('dashboard', {
+        user: { name: "hans", gender: "male", born: Date.now() }
+    });
 });
 
 var server = app.listen(config.port, function () {
@@ -17,3 +25,4 @@ var server = app.listen(config.port, function () {
 
     console.log('Example app listening at http://%s:%s', host, port);
 });
+//# sourceMappingURL=server.js.map
