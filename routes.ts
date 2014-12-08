@@ -1,11 +1,14 @@
 export function index(req, res) {
-    var user = {
-        name: 'Alex',
-        gender: 'male',
-        born: '22.04'
-    }
+    var fs = require('fs');
 
-    res.render('index', { user: user });
+    fs.readFile('data/portfolio/desinexchange/data_en.json', { encoding: 'utf8' }, (err, data) => {
+        var json = JSON.parse(data);
+
+        res.render('index', { portfolio: json });
+
+
+    });
+   
 }
 
 export function dashboard(req, res) {

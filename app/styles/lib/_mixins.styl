@@ -1,10 +1,10 @@
-
+@import "_vars"
 
 responsive-color()
 	if @background-color && dark(@background-color)
 		color white
 	else
-		color rgba(#000000,.87)
+		color $color-font-dark
 
 
 card()

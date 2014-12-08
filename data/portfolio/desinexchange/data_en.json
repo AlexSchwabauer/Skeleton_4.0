@@ -1,0 +1,19 @@
+{
+  "selector": "desinexchange",
+  "title": "Desinexchange",
+  "slogan": "",
+  "finished": "June, 2014",
+  "client_name": "Sinda Martins",
+  "page_url": "//desinexchange.com",
+  "description": "Desinexchange provides several services to architects and design professionals to promote their businesses.\nBesides an attractive, user-friendly platform to showcase their best creations, Desinexchange also provides an sophisticated search algorithm which helps prospective clients to more easily find the professionals.\nA subscription system was also implemented during the development phase.\n",
+  "technologies": [
+    {
+      "name": "WordPress",
+      "value": ""
+    },
+    {
+      "name": "PHP5",
+      "value": ""
+    }
+  ]
+}

@@ -94,12 +94,17 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('browser-sync', function() {
      browserSync({
+         notify: false,
         proxy: 'http://localhost:3000',// config.host + ":" + config.port,
         //scriptPath: function (path) {
         //    return "localhost:3002" + path;
         //}
-         files: ["server.js","routes.js","app/views/**/*.jade", "app/styles/**/*.css", "app/scripts/**/*.js"]
+        // files: ["server.js","routes.js","app/views/**/*.jade", "app/styles/**/*.css", "app/scripts/**/*.js"]
     });
+
+    gulp.watch(['app/views/**/*.jade'], reload);
+    gulp.watch(['app/styles/**/*.css'], reload);
+    gulp.watch(['app/scripts/**/*.js'], reload);
 });
 gulp.task('watch',function() {
     //gulp.watch(['app/views/**/*.jade'], reload);

@@ -4,13 +4,87 @@ block title
    title Codeneric Home
 
 block footerScripts
+   script(src="bower_components/jquery/dist/jquery.js")
+   script(src="bower_components/hammerjs/hammer.js")
    script(src="bower_components/angular/angular.js")
+   script(src="bower_components/angular-touch/angular-touch.js")
+   script(src="bower_components/angular-animate/angular-animate.js")
+   script(src="bower_components/angular-aria/angular-aria.js")
+   script(src="bower_components/angular-material/angular-material.js")
    script(src="scripts/app.js")
 
 block body
    header(role="main")
-      - if(user)
-         h1 Hi, #{user.name}!
-      - else
-         h1 Hello, stranger
+      nav.Nav
+         a(href="#").Nav__link Our Work
+         a(href="#").Nav__link About Us
+         a(href="#").Nav__link Our Services
+         a(href="#").Nav__link Contact
+
+
+   main
+      section.Section__Header
+         .container
+            h1.Section--title Codeneric
+            h3.Section--slogan We got the right code for you
+            .Section--title--divider
+
+            .Section__Header--product
+               h3 Websites
+               .Section__Header--product--desc
+                  p Whether you are just looking for a low-budget online presence for your enterprise, a custom tailored website with an integrated content management system or a highly complex JavaScript-WebApp with elaborate data processing functions server-side. We will gladly extend our support to the development of a concept, layout, design and the selection of suitable technologies with you.
+            .Section__Header--product
+               h3 Websites
+               .Section__Header--product--desc
+                  p Whether you are just looking for a low-budget online presence for your enterprise, a custom tailored website with an integrated content management system or a highly complex JavaScript-WebApp with elaborate data processing functions server-side. We will gladly extend our support to the development of a concept, layout, design and the selection of suitable technologies with you.
+            .Section__Header--product
+               h3 Websites
+               .Section__Header--product--desc
+                  p Whether you are just looking for a low-budget online presence for your enterprise, a custom tailored website with an integrated content management system or a highly complex JavaScript-WebApp with elaborate data processing functions server-side. We will gladly extend our support to the development of a concept, layout, design and the selection of suitable technologies with you.
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+            h1 Hello WorldD
+
+
+      section.Section__Work
+         .container
+            h1.Section--title Our Work
+
+            .Section--title--divider
+
+            .Portfolio__Wrap.Animation.Cascade
+               .Card(portfolio="" ng-click="touched($event)" ng-class="wasTouched ? 'clicked' : ''")
+                  .Card__details
+                     h4 #{portfolio.title}
+
+                  .Card__img
+                     img(src="images/pic.jpg")
+
+
+               .Card
+                  .Card__img
+                     img(src="images/pic.jpg")
+               .Card
+                  .Card__img
+                     img(src="images/pic.jpg")
+
+
+
+
+
+
+
 

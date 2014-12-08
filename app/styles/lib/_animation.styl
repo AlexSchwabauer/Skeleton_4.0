@@ -1,0 +1,32 @@
+@keyframes cascade
+	0%
+		opacity 0
+		transform translateY(100%)
+
+	20%
+		opacity 0
+	100%
+		opacity 1
+		transform translateY(0)
+
+
+
+.Animation.Cascade
+	baseDelay = 0
+
+	&.in > div
+		animation: cascade 1s $animation-curve forwards
+	& > div
+
+
+		opacity 0
+		transform translateY(100%)
+		will-change: opacity, transform
+
+
+
+
+
+	for num in (1..5)
+		& > div:nth-child({num})
+			animation-delay  ( baseDelay + ( 0.05 * num * 4 ) - 0.5)s
