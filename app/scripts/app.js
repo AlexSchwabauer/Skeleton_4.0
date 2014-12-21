@@ -12,21 +12,20 @@ angular.module('app', ['ngTouch', 'ngMaterial'])
                     }
 
                     function applyClass() {
-                        elem.addClass("in");
+                        if(isVisible()) {
+                            elem.addClass("in");
+                            return true;
+                        }
+                        return false;
                     }
 
 
-                    if(isVisible()) {
-                        applyClass();
-
+                    if(applyClass())
                         return;
-                    }
 
                     angular.element($window).bind("scroll.Animation", function() {
-                        if(isVisible()) {
-                            applyClass();
+                        if(applyClass())
                             angular.element($window).unbind("scroll.Animation");
-                        }
                     });
                 }
             }
